@@ -1,16 +1,8 @@
+var fs = require('fs');
 var gulp = require('gulp');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var ngAnnotate = require('gulp-ng-annotate');
 
-gulp.task('watch:js', ['js'], () => {
-    gulp.watch('ng/**/*.js')
+fs.readdirSync(__dirname + '/gulp').forEach((task) => {
+    require('./gulp/' + task)
 })
 
-gulp.task('js', () => {
-    gulp.src(['ng/module.js', 'ng/**/*.js'])
-    .pipe(concat('app.js'))
-    .pipe(ngAnnotate())
-    //.pipe(uglify('app.js'))
-    .pipe(gulp.dest('assets'))
-})
+gulp.task('dev', ['watch:css', 'watch:js', 'dev:server'])

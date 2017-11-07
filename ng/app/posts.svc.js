@@ -5,11 +5,11 @@
     the same instance of this service.
 */
 angular.module('app').service('PostsSvc', function ($http) {
-    this.fetch = () => {
+    this.fetch = function () {
         return $http.get('/api/posts');
     }
 
-    this.create = (post) => {
+    this.create = function (post) {
         return $http.post('/api/posts', post);
     }
 })
