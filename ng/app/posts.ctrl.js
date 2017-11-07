@@ -1,7 +1,8 @@
 angular.module('app').controller('PostsCtrl', function ($scope, PostsSvc) {
 
-    PostsSvc.fetch().success(function (posts) {
-        $scope.posts = posts;
+    PostsSvc.fetch().then(function (result) {
+
+        $scope.posts = result.data;
     });
 
     $scope.addPost = function () {
@@ -9,7 +10,7 @@ angular.module('app').controller('PostsCtrl', function ($scope, PostsSvc) {
             PostsSvc.create({
                 username: 'testx',
                 body: $scope.postBody
-            }).success(function (post) {
+            }).then(function (post) {
                 $scope.posts.unshift(post);
                 $scope.postBody = null;
             })

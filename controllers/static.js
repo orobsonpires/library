@@ -7,7 +7,7 @@ router.use(express.static(__dirname + '/../assets'));
 router.get('/', (req, res) => {
     /* do not use only ../client... the "../" is considered malicious. The local
     path must be resolved, then call sendfile */
-    res.sendFile(path.resolve('layouts/posts.html'));
+    res.sendFile(path.resolve('layouts/app.html'));
 })
 
 module.exports = router;
