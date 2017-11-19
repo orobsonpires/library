@@ -8,13 +8,7 @@ mongoose.connection.on("error", function (err) {
     console.log(err);
 });
 
-mongoose.connect('mongodb://localhost/library?authSource=dbWithUserCredentials', {
-    "auth":
-    { "authSource": "admin" },
-    "user": "test",
-    "pass": "test",
-    useMongoClient: true
-});
+mongoose.connect('mongodb://localhost/library');
 
 module.exports = mongoose;
 

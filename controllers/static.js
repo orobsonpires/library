@@ -3,6 +3,7 @@ var router = express.Router();
 var path = require('path');
 
 router.use(express.static(__dirname + '/../assets'));
+router.use(express.static(__dirname + '/../templates'));
 
 router.get('/', (req, res) => {
     /* do not use only ../client... the "../" is considered malicious. The local
